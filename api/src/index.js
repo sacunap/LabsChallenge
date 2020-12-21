@@ -1,9 +1,11 @@
 const express = require("express");
 const server = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const routes = require('./routes/index.js');
+const routes = require("./routes/index.js");
 
+server.use(cors());
 server.use(express.json());
 server.use(bodyParser.json());
 server.use("/", routes);
