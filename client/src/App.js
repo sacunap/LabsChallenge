@@ -4,9 +4,12 @@ import SearchBar from "./components/SearchBar";
 import axios from "axios";
 import Filter from "./components/Filter";
 import Pagination from "./components/Pagination";
+import Cart from "./components/Cart";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [productsResult, setProductsResult] = useState([]);
+
   const [condition, setCondition] = useState("");
   const [sort, setSort] = useState("");
 
@@ -29,6 +32,7 @@ function App() {
       .get(`http://localhost:1337/api/search?q=${product}`)
       .then((p) => {
         setProducts(p.data);
+        setProductsResult(p.data);
       })
       .catch((err) => {
         console.log(err);
@@ -57,15 +61,42 @@ function App() {
 
   const filterProducts = (event) => {
     const productCondition = event.target.value;
+
     if (productCondition === "new") {
+      setCondition(productCondition);
       setProducts(
-        products.filter((product) => product.condition === productCondition)
+        productsResult.filter(
+          (product) => product.condition.indexOf(productCondition) >= 0
+        )
+      );
+    } else if (productCondition === "used") {
+      setCondition(productCondition);
+      setProducts(
+        productsResult.filter(
+          (product) => product.condition.indexOf(productCondition) >= 0
+        )
       );
     } else {
-      setProducts(
-        products.filter((product) => product.condition === productCondition)
-      );
+      setCondition(productCondition);
+      setProducts(productsResult);
     }
+  };
+
+  const [cartItems, setCartItems] = useState([]);
+  const itemsCart = cartItems.slice();
+
+  const addToCart = (product) => {
+    let alreadyInCart = false;
+    itemsCart.forEach((item) => {
+      if (item.id === product.id) {
+        item.count++;
+        alreadyInCart = true;
+      }
+    });
+    if (!alreadyInCart) {
+      itemsCart.push({ ...product, count: 1 });
+    }
+    setCartItems(itemsCart);
   };
 
   return (
@@ -78,12 +109,13 @@ function App() {
         filterProducts={filterProducts}
       />
       <SearchBar onSearch={onSearch} />
+      <Cart cartItems={cartItems} />
       <Pagination
         productsPerPage={productsPerPage}
         totalProducts={products.length}
         paginate={paginate}
       />
-      <Catalogue products={currentProducts} />
+      <Catalogue products={currentProducts} addToCart={addToCart} />
     </div>
   );
 }

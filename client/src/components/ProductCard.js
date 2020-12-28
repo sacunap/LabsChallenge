@@ -13,7 +13,7 @@ function ProductCard(props) {
           <p>$ {props.price} {props.currency_id}</p>
           <p>Available quantity: {props.available_quantity}</p>
           <p>Condition: {props.condition}</p>
-          <button>Add to Cart</button>
+          <button onClick={() => props.addToCart()}>Add to Cart</button>
         </div>
       </div>
     </div>
