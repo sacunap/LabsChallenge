@@ -99,6 +99,10 @@ function App() {
     setCartItems(itemsCart);
   };
 
+  const removeFromCart = (product) => {
+    setCartItems(itemsCart.filter((x) => x.id !== product.id));
+  };
+
   return (
     <div>
       <Filter
@@ -109,7 +113,7 @@ function App() {
         filterProducts={filterProducts}
       />
       <SearchBar onSearch={onSearch} />
-      <Cart cartItems={cartItems} />
+      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
       <Pagination
         productsPerPage={productsPerPage}
         totalProducts={products.length}
