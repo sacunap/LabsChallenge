@@ -13,18 +13,26 @@ const Cart = ({ cartItems, removeFromCart }) => {
           <ul>
             {/* Se definen los cartItem como números para listarlos */}
             {cartItems.map((item) => (
-              <li key={item.id}>
+              <li className="product-cart" key={item.id}>
                 <img
                   src={item.thumbnail}
                   alt={item.title}
                   style={{ margin: "auto", width: "100px" }}
                 ></img>
-                <div>
-                  Cantidad: {item.count}
-                  <br />$ {item.price} {item.currency_id}
-                  <br />
-                  Subtotal: $ {item.price * item.count}{" "}
-                  <button onClick={() => removeFromCart(item)}>Remove</button>
+
+                <div className="infoDiv">
+                  <div className ="info-text">
+                    Cantidad: {item.count}
+                    <br />
+                    <br />
+                    $ {item.price} {item.currency_id}
+                    <br />
+                    <br />
+                    Subtotal: $ {item.price * item.count}{" "}
+                  </div>
+                  <div  className="button-remove">
+                    <button  onClick={() => removeFromCart(item)}>Remove</button>
+                  </div>
                 </div>
               </li>
             ))}
@@ -34,6 +42,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
           <div>
             Total: ${" "}
             {cartItems.reduce((acc, curr) => acc + curr.price * curr.count, 0)}
+            {" ARS"}
           </div>
         )}
       </div>

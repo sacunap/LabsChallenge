@@ -1,8 +1,9 @@
 import ProductCard from "./ProductCard";
+import styles from './Styles/styles.css'
 
 function Catalogue({ products, addToCart }) {
   return (
-    <div>
+    <div className="catalogueDiv">
       {products.map((product) => {
         return (
           <ProductCard

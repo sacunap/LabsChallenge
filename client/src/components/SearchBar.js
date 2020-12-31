@@ -4,7 +4,7 @@ function SearchBar({ onSearch }) {
   const [input, setInput] = useState("");
 
   return (
-    <div>
+    <div className="searchBar">
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -13,13 +13,14 @@ function SearchBar({ onSearch }) {
         }}
       >
         <input
+          className="inputSearchBar"
           type="search"
           placeholder="Search product..."
           onChange={(e) => setInput(e.target.value)}
           value={input}
         />
 
-        <input type="submit" value="Search" />
+        <input className="button-search" type="submit" value="Search" />
       </form>
     </div>
   );
