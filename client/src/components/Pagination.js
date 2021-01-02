@@ -1,3 +1,4 @@
+
 const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   const pageNumbers = [];
 
@@ -6,13 +7,15 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   }
 
   return (
-    <div className="pagination">
+    <div>
       <nav>
-        <ul className="pages">
-          {pageNumbers.map((number) => (
-            <button className="page-list" onClick={() => paginate(number)}>
-              <li key={number}>{number}</li>
-            </button>
+        <ul>
+          {pageNumbers.map(number => (
+              <button className="page-list" onClick={() => paginate(number)}>
+              <li key={number}>
+                  {number}
+                </li>
+              </button>
           ))}
         </ul>
       </nav>

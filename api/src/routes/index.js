@@ -24,6 +24,7 @@ server.get("/api/search", (req, res) => {
             available_quantity: product.available_quantity,
             thumbnail: product.thumbnail.replace(regex, "-O."),
             condition: product.condition,
+            permalink : product.permalink
           };
         });
         res.status(200).send(products);

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Catalogue from "./Catalogue";
 import SearchBar from "./SearchBar";
 import Cart from "./Cart";
 import axios from "axios";
 import Filter from "./Filter";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
+import Slides from "./Slides";
 
 function Features() {
   // Products ------------------------------------------->
@@ -17,9 +19,8 @@ function Features() {
   const [sort, setSort] = useState("");
 
   // Pagination ----------------------------------------->
-  // Buscar para que es el setLoading
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(10);
+  const [productsPerPage] = useState(12);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirsProduct = indexOfLastProduct - productsPerPage;
@@ -27,11 +28,10 @@ function Features() {
     indexOfFirsProduct,
     indexOfLastProduct
   );
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Aca se hace la conexión con el back
-  // /api/search
+  // Conexion Back ----------------------------------------->
+  // Route --> /api/search
   const onSearch = (product) => {
     setInput(product);
     axios
@@ -44,8 +44,8 @@ function Features() {
         console.log(err);
       });
   };
-  // Sort ---------------------------------------------->
 
+  // Sort ------------------------------------------------>
   const sortProducts = (event) => {
     const sort = event.target.value;
     setSort(sort);
@@ -108,8 +108,9 @@ function Features() {
 
   return (
     <div>
-      <SearchBar onSearch={onSearch} />
-      {/* Este div "contiene Cart y filter" */}
+      <div>
+        <SearchBar onSearch={onSearch} />
+      </div>
       <div>
         <Filter
           count={products.length}
@@ -119,6 +120,8 @@ function Features() {
           filterProducts={filterProducts}
           input={input}
         />
+        <Categories searchCat={searchCat} categories={categories} />
+        <Slides />
         <div className="content">
           <div className="main">
             <Pagination
@@ -139,6 +142,7 @@ function Features() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

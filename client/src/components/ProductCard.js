@@ -1,35 +1,23 @@
-import React from "react";
 
-function ProductCard(props) {
+const ProductCard = (props) => {
+
+  
   return (
-    <div className="cardSize">
-      <div className="Card" style={{ width: "18rem" }}>
-        <img
-          src={props.thumbnail}
-          className="card-img"
-          alt="thumbnail"
-          style={{ margin: "auto", width: "100px" }}
-        />
-        <div className="card-body">
-          <p className="card-title">{props.title}</p>
-          <div className="card-text">
-            <p>
-              $ {props.price} {props.currency_id}
-            </p>
-            <p>
-              <b>Available quantity</b>: {props.available_quantity}
-            </p>
-            <p>
-              <b>Condition</b>: {props.condition}
-            </p>
+    <div>
+          <div className="card">
+              <img src={props.thumbnail} alt="thumbnail" className="card-img" onClick = {() => window.location.href = props.permalink}
+              />
+            <div className="card-body">
+              <p>_______________________________</p>
+              <p className="card-title">{props.title}</p>
+              <p className="card-text"><b>Price</b>: $ {Intl.NumberFormat('de-DE').format(props.price)} {props.currency_id}</p>
+              <p className="card-text"><b>Condition</b>: {props.condition}</p>
+              <p className="card-text"><b>Stock</b>: {props.available_quantity}</p>
+              <button className="buttonAdd" onClick={() => props.addToCart()}><span>Add To Cart</span></button>
+            </div>
           </div>
-          <button className="buttonAdd" onClick={() => props.addToCart()}>
-            <span>Add to Cart</span>
-          </button>
-        </div>
-      </div>
     </div>
-  );
+  )
 }
 
 export default ProductCard;
