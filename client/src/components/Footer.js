@@ -1,4 +1,4 @@
-import githubLogo from "../Styles/img/GitHub-Mark-64px.jpg";
+import githubLogo from './Styles/img/GitHub-Mark-64px.jpg';
 import { FooterStyled } from './Styles/Footer_style';
 
 function Footer() {

@@ -121,8 +121,6 @@ function Features() {
           filterProducts={filterProducts}
           input={input}
         />
-        <Categories searchCat={searchCat} categories={categories} />
-        <Slides />
         <div className="content">
           <div className="main">
             <Pagination

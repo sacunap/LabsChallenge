@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ShoppingPhoto from "../Styles/img/home.jpg";
+import ShoppingPhoto from "./Styles/img/home.jpg";
 import { HomeStyled } from './Styles/Home_style';
 
 function Home() {

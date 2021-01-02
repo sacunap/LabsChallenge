@@ -1,5 +1,4 @@
-import { FilterStyled } from './Styles/Filter_style'
-
+import { FilterStyled } from "./Styles/Filter_style";
 
 function Filter(props) {
   return (

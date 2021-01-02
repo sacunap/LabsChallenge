@@ -11,7 +11,6 @@ export const FooterStyled = styled.div`
     background-color: #bdb7ab;
     color: white;
     text-align: center;
-    font-family: "Bellota Text", cursive;
   }
 
   .used-technologies {
