@@ -12,7 +12,6 @@ function Footer() {
               <li>React</li>
               <ul>
                 <li>Axios</li>
-                <li>memory-cache</li>
                 <li>styled-components</li>
               </ul>
             </ul>

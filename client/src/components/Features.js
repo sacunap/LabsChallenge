@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 import Footer from "./Footer";
 import { FeaturesStyled } from './Styles/Features_style';
 import { SearchBarStyled } from './Styles/SearchBar_style';
+import Slides from './Slides';
 
 function Features() {
   // Products ------------------------------------------->
@@ -113,6 +114,7 @@ function Features() {
         <SearchBar onSearch={onSearch} />
       </SearchBarStyled>
       <div>
+        <Slides />
         <Filter
           count={products.length}
           sort={sort}

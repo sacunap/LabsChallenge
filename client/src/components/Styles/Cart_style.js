@@ -26,4 +26,7 @@ export const CartStyled = styled.div`
   .total {
     font-size: 1.5rem;
   }
+
+  .empty {
+    font-size: 1.5rem;  }
 `;

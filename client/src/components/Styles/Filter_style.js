@@ -29,6 +29,7 @@ export const FilterStyled = styled.div`
   .results {
     margin: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     font-family: "Bellota", cursive;
   }

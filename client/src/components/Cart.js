@@ -44,7 +44,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
                       Subtotal: ${" "}
                       {Intl.NumberFormat("de-DE").format(
                         item.price * item.count
-                      )}{" "}
+                      )}{" "} {item.currency_id}
                     </div>
                   </div>
                   <div className="button-remove">
