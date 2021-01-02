@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import ShoppingPhoto from "../Styles/img/home.jpg";
+import { HomeStyled } from './Styles/Home_style';
 
 function Home() {
   return (
-    <div>
+    <HomeStyled>
       <Link className="link" to="/search">
         <div className="text">
           <p>Time To Shop!</p>
@@ -11,7 +12,7 @@ function Home() {
         </div>
       </Link>
       <img src={ShoppingPhoto} alt="shoppingPhoto" />
-    </div>
+    </HomeStyled>
   );
 }
 

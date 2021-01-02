@@ -1,6 +1,8 @@
+import { CartStyled } from './Styles/Cart_style'
+
 const Cart = ({ cartItems, removeFromCart }) => {
   return (
-    <div>
+    <CartStyled>
       <div className="empty">
         {cartItems.length === 0 ? (
           <div>Cart is empty</div>
@@ -54,7 +56,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </CartStyled>
   );
 };
 

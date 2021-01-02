@@ -1,8 +1,9 @@
 import githubLogo from "../Styles/img/GitHub-Mark-64px.jpg";
+import { FooterStyled } from './Styles/Footer_style';
 
 function Footer() {
   return (
-    <div>
+    <FooterStyled>
       <div className="footer">
         <div className="used-technologies">
           <b>Tecnologías ocupadas:</b>
@@ -47,7 +48,7 @@ function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </FooterStyled>
   );
 }
 

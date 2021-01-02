@@ -1,7 +1,9 @@
+import { FilterStyled } from './Styles/Filter_style'
+
 
 function Filter(props) {
   return (
-    <div>
+    <FilterStyled>
       <div className="all">
         <div className="results">
           <div className="input">
@@ -26,7 +28,7 @@ function Filter(props) {
           </select>
         </div>
       </div>
-    </div>
+    </FilterStyled>
   );
 }
 

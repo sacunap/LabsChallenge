@@ -1,3 +1,4 @@
+import { PaginationStyled } from './Styles/Pagination_style';
 
 const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   const pageNumbers = [];
@@ -7,7 +8,7 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   }
 
   return (
-    <div>
+    <PaginationStyled>
       <nav>
         <ul>
           {pageNumbers.map(number => (
@@ -19,7 +20,7 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
           ))}
         </ul>
       </nav>
-    </div>
+    </PaginationStyled>
   );
 };
 

@@ -1,8 +1,9 @@
 import ProductCard from "./ProductCard";
+import { CatalogueStyled } from "./Styles/Catalogue_style";
 
 function Catalogue({ products, addToCart }) {
   return (
-    <div>
+    <CatalogueStyled>
       {products.map((product) => {
         return (
           <ProductCard
@@ -18,7 +19,7 @@ function Catalogue({ products, addToCart }) {
           />
         );
       })}
-    </div>
+    </CatalogueStyled>
   );
 }
 

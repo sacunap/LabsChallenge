@@ -6,7 +6,8 @@ import axios from "axios";
 import Filter from "./Filter";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
-import Slides from "./Slides";
+import { FeaturesStyled } from './Styles/Features_style';
+import { SearchBarStyled } from './Styles/SearchBar_style';
 
 function Features() {
   // Products ------------------------------------------->
@@ -107,10 +108,10 @@ function Features() {
   };
 
   return (
-    <div>
-      <div>
+    <FeaturesStyled>
+      <SearchBarStyled>
         <SearchBar onSearch={onSearch} />
-      </div>
+      </SearchBarStyled>
       <div>
         <Filter
           count={products.length}
@@ -143,7 +144,7 @@ function Features() {
         </div>
       </div>
       <Footer />
-    </div>
+    </FeaturesStyled>
   );
 }
 
