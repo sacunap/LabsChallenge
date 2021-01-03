@@ -7,6 +7,10 @@ export const CartStyled = styled.div`
     display: flex;
     padding-bottom: 3rem;
     list-style-type: none;
+    img {
+      margin: auto;
+      width: 6.25rem;
+    }
   }
 
   .infoDiv {

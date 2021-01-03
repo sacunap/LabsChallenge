@@ -1,5 +1,6 @@
 import { ProductCardStyled } from "./Styles/ProductCard_style";
 
+// Este el componente que muestra un producto, como una carta, le llegan por props todas las variables del componente padre Catalogue.js
 const ProductCard = (props) => {
   return (
     <ProductCardStyled>
@@ -8,7 +9,9 @@ const ProductCard = (props) => {
           src={props.thumbnail}
           alt="thumbnail"
           className="card-img"
-          onClick={() => (window.location.href = props.permalink)}
+          // Al realizar un click en la imagen, llama a una función llamada window.open, lo que hace es abrir el link del producto 
+          // de mercadolibre, en otra pestaña.
+          onClick={() => window.open(props.permalink, "_blank")}
         />
         <div className="card-body">
           <p>_______________________________</p>
@@ -23,6 +26,7 @@ const ProductCard = (props) => {
           <p className="card-text">
             <b>Stock</b>: {props.available_quantity}
           </p>
+          {/* Aca se hace uso de la función AddToCart, invocada al hacer click en el botón, lo que hace es añadir el producto al carrito. Esta función viene por props */}
           <button className="buttonAdd" onClick={() => props.addToCart()}>
             <span>Add To Cart</span>
           </button>
