@@ -1,13 +1,15 @@
 // Se guarda en una constante server para utilizarse directamente con las rutas
 const server = require("express").Router();
 const axios = require("axios"); // Se requiere axios para hacer las llamadas a la api
+const { cache } = require('../cache');
 
 // Usaremos el siguiente endpoint de Mercado Libre https://api.mercadolibre.com/sites/MLA/search?q={query}.
 // Recibe un queryString con el parámetro q con un string que indica el keyword a buscar.
 
 // Se crea la ruta /api/search, que utilizará el front para hacer la conexión. Una petición GET.
+// Acá hacemos referencia al cache y al tiempo que estará alojada la información en el mismo (en segundos).
 // /api/search
-server.get("/api/search", (req, res) => {
+server.get("/api/search", cache(20), (req, res) => {
   // Se guarda en una constante product el valor que llega por query
   const product = req.query.q;
   // Esta constante se crea debido a que las imagenes obtenidas de mercadolibre vienen en una resolución pequeña
@@ -52,4 +54,20 @@ server.get("/api/search", (req, res) => {
     });
 });
 
+// Principal Categories --->
+server.get("/api/categories", cache(20), (req, res) => {
+  
+  axios.get('https://api.mercadolibre.com/sites/MLA/categories')
+  .then(({data}) => {
+    res.status(200).send(data)
+  }
+  )
+  .catch((err) =>{
+    res.status(404).send(err);
+  })
+});
+
+  
 module.exports = server;
+
+

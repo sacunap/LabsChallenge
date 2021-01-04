@@ -9,8 +9,12 @@ import Footer from "./Footer";
 import { FeaturesStyled } from './Styles/Features_style';
 import { SearchBarStyled } from './Styles/SearchBar_style';
 import Slides from './Slides';
+import  Categories  from './Categories';
 
 function Features() {
+
+  const [error, setError] = useState()
+
   // Products ------------------------------------------->
   const [products, setProducts] = useState([]);
   const [productsResult, setProductsResult] = useState([]);
@@ -19,6 +23,9 @@ function Features() {
   // Condition ------------------------------------------>
   const [condition, setCondition] = useState("");
   const [sort, setSort] = useState("");
+
+  // Categories ----------------------------------------->
+  const [categories, setCategories] = useState([]);
 
   // Pagination ----------------------------------------->
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,6 +48,7 @@ function Features() {
     axios
       .get(`http://localhost:1337/api/search?q=${product}`)
       .then((p) => {
+        
         // Si la promesa fue resuelta, guarda los datos en Products y en ProductsResult
         setProducts(p.data);
         // Se guarda lo mismo en dos variables distintas, debido a que para realizar un filtro de productos, 
@@ -51,16 +59,32 @@ function Features() {
         setProductsResult(p.data);
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data);
+        // console.log(err.response.data);
       });
   };
-
+  
+  // Route --> /api/categories
+  const searchCat = () => {
+    axios.get(`http://localhost:1337/api/categories`)
+    .then((categories) => {
+      setCategories(categories.data);
+      //setCategoriesResult(categories.data) 
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+  
   // Sort ------------------------------------------------>
   const sortProducts = (event) => {
     const sort = event.target.value;
     setSort(sort);
     setProducts(
+      // Slice va extrayendo cada valor del arreglo y a traves del sort compara cada dos elementos y dependiendo de la condicion, lo posiciona delante (1) o detrás (-1), dentro del arreglo. 
+      // Esto lo realiza, recoorriendo todos los valores una y otra vez, hasta que estén en la posición correcta.  
       products.slice().sort((a, b) =>
+
         sort === "lowest"
           ? a.price > b.price
             ? 1
@@ -69,7 +93,7 @@ function Features() {
           ? a.price < b.price
             ? 1
             : -1
-          : // Ordena por id (por defecto al colocar Price)
+          : // por defecto trae los últimos items agregados por id (por defecto al colocar Price)
           a.id > b.id
           ? 1
           : -1
@@ -94,6 +118,7 @@ function Features() {
         )
       );
     } else {
+      // por defecto trae los elementos según la API
       setCondition(productCondition);
       setProducts(productsResult);
     }
@@ -141,6 +166,10 @@ function Features() {
           filterProducts={filterProducts}
           input={input}
         />
+        <Categories
+          searchCat={searchCat}
+          categories={categories}
+        />
         {/* Se divide en distintos div, para mostrar los resultados al lado izquierdo de la pantalla y el carrito al lado derecho */}
         <div className="content">
           <div className="main">
@@ -148,6 +177,7 @@ function Features() {
               productsPerPage={productsPerPage}
               totalProducts={products.length}
               paginate={paginate}
+              key={paginate}
             />
             <Catalogue products={currentProducts} addToCart={addToCart} />
             <Pagination
