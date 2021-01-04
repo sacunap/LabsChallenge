@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const FilterStyled = styled.div`
+
   display: inline-block;
   justify-content: flex-start;
   align-items: center;

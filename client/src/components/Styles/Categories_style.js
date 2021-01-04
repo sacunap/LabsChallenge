@@ -24,9 +24,6 @@ export const CategoriesStyled = styled.div`
     // Barra deslizable
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 12rem; 
+    height: 12rem;
   }
-  .list {
-  }
-
 `;

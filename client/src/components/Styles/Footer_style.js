@@ -5,16 +5,12 @@ export const FooterStyled = styled.div`
 
   .footer {
     display: flex;
-    position: fixed;
     padding-top: 1rem;
-    left: 0;
-    bottom: 0;
     width: 100%;
     background-color: #bdb7ab;
     color: white;
     text-align: center;
     font-family: "Bellota Text", cursive;
-    justify-content: center;
   }
 
   .used-technologies {
