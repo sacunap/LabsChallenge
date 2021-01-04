@@ -6,8 +6,8 @@ import axios from "axios";
 import Filter from "./Filter";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
-import { FeaturesStyled } from "../Styles/Features_styles";
-import { SearchBarStyled } from "../Styles/SearchBar_style";
+import { FeaturesStyled } from "./Styles/Features_style";
+import { SearchBarStyled } from "./Styles/SearchBar_style";
 import Slides from "./Slides";
 import Categories from "./Categories";
 
@@ -42,11 +42,7 @@ function Features() {
   // La función onSearch, hace la conexión con el back, debido a que el input ingresado por el usuario, requiere la llamada
   // a la API de mercado libre, a través de un request tipo GET por axios.
   const onSearch = (product) => {
-    //useEffect(() => {
 
-    // const abortController = new AbortController();
-    // const signal = abortController.signal;
-    //, {signal: signal}
     setInput(product);
     axios
       .get(`http://localhost:1337/api/search?q=${product}`)
@@ -65,10 +61,7 @@ function Features() {
         console.log(err);
         setError(true);
       });
-    //     return function cleanUp(){
-    //       abortController.signal()
-    //     }
-    // }, []);
+
   };
 
   // Route --> /api/categories
@@ -77,7 +70,6 @@ function Features() {
       .get(`http://localhost:1337/api/categories`)
       .then((categories) => {
         setCategories(categories.data);
-        //setCategoriesResult(categories.data)
       })
       .catch((err) => {
         console.log(err);

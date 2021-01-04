@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CategoriesStyled } from "../Styles/Categories_style";
+import { CategoriesStyled } from "./Styles/Categories_style";
 
 function Categories({ searchCat, categories }) {
   const [input, setInput] = useState("");
@@ -39,7 +39,8 @@ function Categories({ searchCat, categories }) {
                       `https://www.mercadolibre.com.ar/c/${cat.name
                         .replace(regex, "-")
                         .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "")}`,
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .replace(",", "")}`,
                       "_blank"
                     )
                   }

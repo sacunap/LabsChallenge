@@ -1,5 +1,5 @@
 // Se importa el estilo como styled-component
-import { CartStyled } from "../Styles/Cart_style";
+import { CartStyled } from "./Styles/Cart_style";
 
 // Se crea Cart, con parámetros cartItems y removeFromCart que son pasadas por props desde el componente padre, que es Features.js
 const Cart = ({ cartItems, removeFromCart }) => {

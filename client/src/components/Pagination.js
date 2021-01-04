@@ -1,4 +1,4 @@
-import { PaginationStyled } from "../Styles/Pagination_style";
+import { PaginationStyled } from "./Styles/Pagination_style";
 
 // Este componente Pagination, se creó para mostrar todos los resultados de producto, pero en distintas páginas.
 // le llegan por props, las variables productsPerPage (productos por página), totalProducts(productos totales) y paginate, que

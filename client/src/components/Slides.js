@@ -56,7 +56,7 @@ const Slides = () => {
               onClick={() =>
                 window.open("https://www.mercadolibre.com.ar/ofertas", "_blank")
               }
-              style={{ cursor: `pointer`, marginTop: `1rem` }}
+              style={{ cursor: `pointer`, marginTop: `1rem`, width: "100%"}}
             />
           </div>
         ))}

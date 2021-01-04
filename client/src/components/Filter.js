@@ -1,4 +1,4 @@
-import { FilterStyled } from "../Styles/Filter_styles";
+import { FilterStyled } from "./Styles/Filter_style";
 
 // A este componente Filter.js, se le pasan por props directamente, ya que haciendo destructuring sería muy larga la línea de código,
 // lo que le llega es count, sort, condition, sortProducts, filterProducts e input, que son props del componente padre Features.js

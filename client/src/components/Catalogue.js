@@ -1,8 +1,8 @@
 // Se importa el componente ProductCard.js, debido a que el componente Catalogue.js, renderizará varios componentes ProductCard.js
 import ProductCard from "./ProductCard";
-import { FeaturesStyled } from "../Styles/Features_styles";
-import { CatalogueStyled } from "../Styles/Catalogue_style";
-import gifError from "../Styles/img/gif2_404.gif";
+import { FeaturesStyled } from "./Styles/Features_style";
+import { CatalogueStyled } from "./Styles/Catalogue_style";
+import gifError from "./Styles/img/gif2_404.gif";
 
 // Se crea Catalogue, con parámetros products y addToCart que son pasadas por props desde el componente padre, que es Features.js
 function Catalogue({ products, addToCart, error }) {

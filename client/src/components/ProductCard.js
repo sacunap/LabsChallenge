@@ -1,4 +1,4 @@
-import { ProductCardStyled } from "../Styles/ProductCard_style";
+import { ProductCardStyled } from "./Styles/ProductCard_style";
 
 // Este el componente que muestra un producto, como una carta, le llegan por props todas las variables del componente padre Catalogue.js
 const ProductCard = (props) => {

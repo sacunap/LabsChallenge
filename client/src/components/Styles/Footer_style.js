@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const FooterStyled = styled.div`
+  margin-top: 15rem;
+
   .footer {
     display: flex;
-    position: relative;
+    position: fixed;
     padding-top: 1rem;
     left: 0;
     bottom: 0;
@@ -11,6 +13,8 @@ export const FooterStyled = styled.div`
     background-color: #bdb7ab;
     color: white;
     text-align: center;
+    font-family: "Bellota Text", cursive;
+    justify-content: center;
   }
 
   .used-technologies {
@@ -57,6 +61,7 @@ export const FooterStyled = styled.div`
       width: 2rem;
     }
   }
+
   .us {
     display: flex;
     align-items: center;
