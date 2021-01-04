@@ -12,6 +12,7 @@ function SearchBar({ onSearch }) {
       <div>
         {/* Este link redirige a la página principal, al hacer click en Home */}
         <Link to="/">
+          <h5 className="text1">Go</h5>
           <h3 className="text">Home</h3>
         </Link>
       </div>

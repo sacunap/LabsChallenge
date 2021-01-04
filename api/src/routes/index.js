@@ -69,5 +69,3 @@ server.get("/api/categories", cache(20), (req, res) => {
 
   
 module.exports = server;
-
-
