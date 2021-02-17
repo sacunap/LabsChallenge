@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import pexels from "../Styles/img/menu3.jpg";
-//import pexels from '../Styles/img/menu1.png'
 
 export const SearchBarStyled = styled.div`
   .searchBar {
