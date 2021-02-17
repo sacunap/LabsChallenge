@@ -4,10 +4,10 @@ var cors = require("cors");
 
 const routes = require("./routes/index.js");
 server.use(cors());
-server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+// server.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 server.use("/", routes);
 
 const port = process.env.PORT || 3000
