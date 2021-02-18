@@ -2,7 +2,7 @@
 
 The objective of the challenge was to build a Front-End and a Back-End that interacts with an external API.
 
-We are going to use the public API of *Free Market*. From it we are going to extract publications that we are going to store in our own back-end using a cache. For the front-end we are going to develop a series of React Components to be able to display and interact with the aforementioned publications.
+We are going to use the public API of *Mercado Libre*. From it we are going to extract publications that we are going to store in our own back-end using a cache. For the front-end we are going to develop a series of React Components to be able to display and interact with the aforementioned publications.
 
 ## 💻 Demo of Working Project
 
